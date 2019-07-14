@@ -1,68 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MeetFrank Frontend Task
 
-## Available Scripts
+### Overview
 
-In the project directory, you can run:
+The task is to create a small game of chance (Figma link for views is provided below)
 
-### `npm start`
+Game consists of 3 screens:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Intro screen, where user has to input his/her name
+* The "game" screen, where user has 3 squares in front of him/her and has to click on one. Clicking on one will reveal if there is a ball under it. If user finds the ball he/she scores a point (there are 3 rounds of guessing). After opening one square point is added to overall score and another round begins
+* Last screen shows the result of the game. If user did not find any balls, then the score will be 0/3. If 1 ball was found then 1/3 etc...
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Tech
+Tech to use for this task:
 
-### `npm test`
+* Please use React
+* Everything else is optional
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Links
+* [Views](https://www.figma.com/file/B8z8MXi4083xJFjn01i31A1Z/play-the-game) - Figma link for views (If you login to figma with your gmail account you can then select different components and see what styles have been applied, how they are positioned etc...)
+* [Behaviour video](https://www.dropbox.com/s/jst9jafrxaeut2g/play%20the%20game.mp4?dl=0) - Here's a video to show how the app should behave.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Sending completed task
+You can send the completed task to kaspar@meetfrank.com and add anton@meetfrank.com to CC.
+It can be in a form of a git repo link, zipped folder or something else.
