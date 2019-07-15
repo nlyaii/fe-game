@@ -1,0 +1,95 @@
+@import "assets/styles/components/chatbot/chatbot.scss";
+@import "assets/styles/misc/animations.scss";
+@import "assets/styles/misc/input.scss";
+
+.App {
+  font-family: 'GT Walsheim';
+  .App-logo {
+    /*animation: App-logo-spin infinite 20s linear;*/
+    height: 27px;
+    width: 23px;
+    pointer-events: none;
+    position: absolute;
+    bottom: 10px;
+  }
+  .App-header {
+    margin: 0 auto;
+    max-width: 500px;
+    background-color: white;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+  }
+}
+
+// fonts
+
+@font-face {
+  font-family: 'GT Walsheim';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/gt-walsheim.eot');
+  src:
+          url('./fonts/gt-walsheim.woff'),
+          url('./fonts/gt-walsheim.ttf') format('truetype'),
+          url('./fonts/gt-walsheim.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'GT Walsheim';
+  font-style: normal;
+  src: url('./fonts/gt-walsheim-medium.eot'); /* IE9 Compat Modes */
+  src:
+          url('./fonts/gt-walsheim-medium.woff'),
+          url('./fonts/gt-walsheim-medium.ttf') format('truetype'),
+          url('./fonts/gt-walsheim-medium.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'GT Walsheim';
+  font-style: oblique;
+  src: url('./fonts/gt-walsheim-bold.eot'); /* IE9 Compat Modes */
+  src:
+          url('./fonts/gt-walsheim-bold.woff'),
+          url('./fonts/gt-walsheim-bold.ttf') format('truetype'),
+          url('./fonts/gt-walsheim-bold.svg') format('svg');
+}
+
+.hidden {
+  display: none;
+}
+
+.intro-screen *{
+  left: 5.33%;
+}
+
+.form{
+  -webkit-animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -ms-animation: fadein 2s;
+  -o-animation: fadein 2s;
+  animation: fadein 2s;
+}
+
+.start-button{
+  position: absolute;
+  width: 90%;
+  bottom: 20%;
+  border-width: 0;
+  font-size: 14px;
+  outline: none;
+  line-height: 24px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  padding: 13px 0 7px 0;
+  background: #4967E2;
+  border-radius: 150px;
+  &:disabled{
+    background: #C4C8CB;
+  }
+}

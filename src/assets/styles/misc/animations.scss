@@ -1,0 +1,10 @@
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeIt {
+  0%   { background-color: #C4C8CB; }
+  50%  { background-color: #91a3ee; }
+  100% { background-color: #4967E2; }
+}

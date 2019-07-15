@@ -1,11 +1,12 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import MainLayout from './game/layouts/MainLayout'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>test</div>
+          <MainLayout/>
       </header>
     </div>
   );

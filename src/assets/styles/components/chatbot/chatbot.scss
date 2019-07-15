@@ -1,0 +1,40 @@
+.chat-bot{
+  position: absolute;
+  left: 5.33%;
+  .mustace-logo {
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
+    animation: fadein 2s;
+    top: 10.84%;
+    bottom: 84.24%;
+  }
+  .chat-item{
+    &.hidden{
+      display: none;
+    }
+    display: table;
+    margin-top: 10px;
+    max-width: 90%;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
+    animation: fadein 2s;
+    top: 17.98%;
+    padding: 20px;
+    border: 1px solid #E3E9EC;
+    border-radius: 20px 20px 20px 5px;
+    box-sizing: border-box;
+    text-align: left;
+    .chat-text{
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  .chat-item + .chat-item{
+    top: 30%;
+  }
+}
