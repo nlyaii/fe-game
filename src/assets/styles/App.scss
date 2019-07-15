@@ -1,0 +1,117 @@
+@import "components/chatbot/chatbot";
+@import "misc/animations";
+@import "misc/input";
+
+.app {
+  font-family: 'GT Walsheim', serif;
+  .app-logo {
+    height: 27px;
+    width: 23px;
+    pointer-events: none;
+    position: absolute;
+    bottom: 10px;
+  }
+  .app-body {
+    margin: 0 auto;
+    max-width: 500px;
+    background-color: white;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+  }
+}
+
+// fonts
+@font-face {
+  font-family: 'GT Walsheim';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/gt-walsheim.eot');
+  src:
+          url('../fonts/gt-walsheim.woff'),
+          url('../fonts/gt-walsheim.ttf') format('truetype'),
+          url('../fonts/gt-walsheim.svg') format('svg');
+}
+
+
+.hidden {
+  display: none;
+}
+
+.intro-screen *{
+  left: 5.33%;
+}
+
+.form{
+  -webkit-animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -ms-animation: fadein 2s;
+  -o-animation: fadein 2s;
+  animation: fadein 2s;
+}
+
+.start-button{
+  position: absolute;
+  width: 90%;
+  bottom: 20%;
+  border-width: 0;
+  font-size: 14px;
+  outline: none;
+  line-height: 24px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  padding: 13px 0 7px 0;
+  background: #4967E2;
+  border-radius: 150px;
+  &:disabled{
+    background: #C4C8CB;
+  }
+}
+
+.game{
+  text-align: center;
+  .squares{
+    left: 5.33%;
+    position: absolute;
+    bottom: 30%;
+    width: 90%;
+    .square{
+      animation: fadein 2s;
+      animation-fill-mode: forwards;
+      &.invalid{
+        background-image: url("../../assets/icons/red-cross.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: white;
+      }
+
+      &.valid{
+        background-image: url("../../assets/icons/blue-circle.svg" );
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: white;
+
+      }
+      display:inline-block;
+      vertical-align: bottom;
+      width: 60px;
+      height: 60px;
+      margin: 0 20px 0 0;
+      background: #E4E9EC;
+      border-radius: 10px;
+    }
+
+    .square:nth-child(2) {
+      margin: 0 20px;
+    }
+
+    .square:nth-child(3) {
+      margin: 0 0 0 20px;
+    }
+  }
+}
