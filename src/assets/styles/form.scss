@@ -1,0 +1,26 @@
+.form{
+  -webkit-animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -ms-animation: fadein 2s;
+  -o-animation: fadein 2s;
+  animation: fadein 2s;
+}
+
+.start-button{
+  position: absolute;
+  width: 90%;
+  bottom: 20%;
+  border-width: 0;
+  font-size: 14px;
+  outline: none;
+  line-height: 24px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  padding: 13px 0 7px 0;
+  background: #4967E2;
+  border-radius: 150px;
+  &:disabled{
+    background: #C4C8CB;
+  }
+}

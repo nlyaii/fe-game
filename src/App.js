@@ -1,5 +1,5 @@
 import React from 'react';
-import './assets/styles/App.scss';
+import './App.scss';
 import MainLayout from './game/layouts/MainLayout'
 
 function App() {

@@ -1,30 +1,30 @@
 import React  from 'react';
 import ChatLine from '../components/ChatLine'
 import logo from "../../assets/icons/frank-mustace.svg"
+import messages from '../../messages/messages'
+import {FIRST_TIMEOUT, SECOND_TIMEOUT, THIRD_TIMEOUT} from "../../constants/timeouts";
 
+class IntroScreenView extends React.Component{
 
-const firstWait = 1000;
-const secondWait = 2000;
-const formWait = 3000;
-
-class IntroScreen extends React.Component{
     constructor(props) {
         super(props);
+        this.timeout = null;
         this.state = {
-            talk: {
-                greeting: 'Hello!',
-                intro: 'To begin with <b>the Game</b>, fill in your name below!'
-            },
-            hidden : "hidden",
+            hidden : true,
             inputClass: '',
-            name: ''
+            name: '',
+
         };
     }
 
     componentDidMount() {
-        setTimeout(() => {
-            this.setState({hidden: ""});
-        }, formWait );
+        this.timeout = setTimeout(() => {
+            this.setState({hidden: false});
+        }, THIRD_TIMEOUT);
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.timeout)
     }
 
     handleChange = (e) => {
@@ -32,26 +32,30 @@ class IntroScreen extends React.Component{
         this.setState({ name: e.target.value });
     }
 
+    isHidden = () => {
+        return this.state.hidden ? 'hidden' : ''
+    }
+
     render(){
         return (
             <div className="intro-screen">
                 <div className="chat-bot">
                     <img src={logo} className="mustace-logo" alt="logo"/>
-                    <ChatLine wait={firstWait} say={this.state.talk.greeting}/>
-                    <ChatLine wait={secondWait} say={this.state.talk.intro}/>
+                    <ChatLine wait={FIRST_TIMEOUT} say={messages.firstView.greeting}/>
+                    <ChatLine wait={SECOND_TIMEOUT} say={messages.firstView.intro}/>
                 </div>
-                <div className={'form ' + this.state.hidden}>
+                <div className={"form " + this.isHidden()}>
                     <div className='group'>
                         <input className={this.state.inputClass} onChange={this.handleChange} value={this.state.name}
                                type="text" label='Name'/>
                         <label>Name</label>
                     </div>
                     <button disabled={!this.state.name} className="start-button" type="button"
-                            onClick={this.props.storeAndMove}>Start</button>
+                            onClick={this.props.onStoreAndMove}>Start</button>
                 </div>
             </div>
         );
     }
 }
 
-export default IntroScreen;
+export default IntroScreenView;

@@ -11,7 +11,6 @@ export const clearName = () => ({
 
 // reducers.js
 export const name = (state = {}, action) => {
-    console.log()
     switch (action.type) {
         case 'ACTIVATE_GEOD':
             return action.name;
@@ -34,4 +33,3 @@ export function configureStore(initialState = {}) {
 
 
 export const store = configureStore();
-console.log(store)

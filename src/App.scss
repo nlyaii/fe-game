@@ -1,0 +1,72 @@
+@import "assets/styles/components/chatbot/chatbot";
+@import "assets/styles/components/game/game";
+
+@import "assets/styles/misc/animations";
+@import "assets/styles/misc/input";
+
+@import "assets/styles/form";
+
+.app {
+  font-family: 'GT Walsheim', serif;
+  .app-logo {
+    height: 27px;
+    width: 23px;
+    pointer-events: none;
+    position: absolute;
+    bottom: 10px;
+  }
+  .app-body {
+    margin: 0 auto;
+    max-width: 500px;
+    background-color: white;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+  }
+}
+
+// fonts
+@font-face {
+  font-family: 'GT Walsheim';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/gt-walsheim.eot');
+  src:
+          url('assets/fonts/gt-walsheim.woff'),
+          url('assets/fonts/gt-walsheim.ttf') format('truetype'),
+          url('assets/fonts/gt-walsheim.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'GT Walsheim';
+  font-style: normal;
+  font-weight: 500;
+  src: url('assets/fonts/gt-walsheim-medium.eot'); /* IE9 Compat Modes */
+  src:
+          url('assets/fonts/gt-walsheim-medium.woff'),
+          url('assets/fonts/gt-walsheim-medium.ttf') format('truetype'),
+          url('assets/fonts/gt-walsheim-medium.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'GT Walsheim';
+  font-style: oblique;
+  font-weight: bold;
+  src: url('assets/fonts/gt-walsheim-bold.eot'); /* IE9 Compat Modes */
+  src:
+          url('assets/fonts/gt-walsheim-bold.woff'),
+          url('assets/fonts/gt-walsheim-bold.ttf') format('truetype'),
+          url('assets/fonts/gt-walsheim-bold.svg') format('svg');
+}
+
+.hidden { display: none; }
+
+.intro-screen * { left: 5.33%; }
+
+
+
+
