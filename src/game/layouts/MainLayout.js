@@ -7,15 +7,13 @@ import logo from "../../assets/icons/frank-icon.svg"
 
 
 class MainLayout extends React.Component{
-    min = 1
-    max = 3
-    attempts = 3
-    state = {
-        nextScreen: false,
-        step: 0,
-        games: 0,
-        name: '',
-        gameScore: 0
+    constructor(props) {
+        super(props)
+        this.state = {
+            step: 0,
+            name: '',
+            gameScore: 0
+        }
     }
 
     triggerNextComponent = () => {
@@ -27,8 +25,9 @@ class MainLayout extends React.Component{
     }
 
 
-    handleName = (newName) => {
+    handleStore = (newName) => {
         this.setState({name: newName})
+        this.triggerNextComponent()
     }
 
     handleGame = (score) => {
@@ -36,35 +35,26 @@ class MainLayout extends React.Component{
         this.triggerNextComponent()
     }
 
-    handleNewGame = () => {
-        this.setState({games: this.state.games + 1})
-        this.triggerPreviousComponent()
-    }
-
     render(){
-        const {name, step, gameScore, games} = this.state
+        const {name, step, gameScore} = this.state
 
         const rules = {
-            min: this.min,
-            max: this.max
+            min: this.props.gameState.min,
+            max: this.props.gameState.max,
+            attempts: this.props.gameState.attempts
         }
 
-        const gameData = {
+        const gameResultData = {
             score: gameScore,
-            attempts: this.attempts,
+            attempts: this.props.gameState.attempts,
             name: name
-        }
-
-        const initGameData = {
-            name: name,
-            games: games
         }
 
         return (
             <div className="main-layout">
-                {step === 0 && <IntroScreenView onNameInput={this.handleName} onStoreAndMove={this.triggerNextComponent}/>}
-                {step === 1 && <InitGameView initData={initGameData} name={name} rules={rules} onFinishGame={this.handleGame} />}
-                {step === 2 && <ResultView onNewGame={this.handleNewGame} gameResult={gameData} onTryAgain={this.triggerPreviousComponent} />}
+                {step === 0 && <IntroScreenView onStoreAndMove={this.handleStore}/>}
+                {step === 1 && <InitGameView name={name} rules={rules} onFinishGame={this.handleGame} />}
+                {step === 2 && <ResultView gameResult={gameResultData} onNewGame={this.triggerPreviousComponent} />}
                 <img src={logo} className="app-logo" alt="logo"/>
             </div>
         );

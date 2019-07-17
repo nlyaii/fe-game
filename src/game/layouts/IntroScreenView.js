@@ -26,8 +26,11 @@ class IntroScreenView extends React.Component{
     }
 
     handleChange = (e) => {
-        this.props.onNameInput(e.target.value)
         this.setState({ name: e.target.value });
+    }
+
+    handleMove = () => {
+        this.props.onStoreAndMove(this.state.name)
     }
 
     render(){
@@ -49,7 +52,7 @@ class IntroScreenView extends React.Component{
                         <label>{messages.firstView.inputLabel}</label>
                     </div>
                     <button disabled={!this.state.name} className="start-button" type="button"
-                            onClick={this.props.onStoreAndMove}>{messages.firstView.start}</button>
+                            onClick={this.handleMove}>{messages.firstView.start}</button>
                 </div>
             </div>
         );
