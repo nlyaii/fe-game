@@ -1,6 +1,6 @@
 # Instructions
 
-It's `yarn install` (YIC) and then `yarn start`, should be good to go.
+It's `yarn install` (JIC) and then `yarn start`, should be good to go.
 
 # MeetFrank Frontend Task
 
