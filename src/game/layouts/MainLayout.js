@@ -39,6 +39,7 @@ class MainLayout extends React.Component{
         const {name, step, gameScore} = this.state
 
         const rules = {
+            tiles: this.props.gameState.tiles,
             min: this.props.gameState.min,
             max: this.props.gameState.max,
             attempts: this.props.gameState.attempts

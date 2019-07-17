@@ -8,6 +8,7 @@ class Game extends React.Component{
     }
 
     componentDidMount() {
+
         setTimeout(() => {
             this.setState({hidden: false});
         }, this.props.wait );
@@ -40,12 +41,15 @@ class Game extends React.Component{
     render(){
         const {hidden} = this.state
         const gameClass =  hidden ? 'hidden' : ''
+
+        const items = this.props.tiles.map((item, key) =>
+            <div onClick={this.handleClick} className="square " key={key} id={item.id}/>
+        );
+
         return (
             <div className={"game " + gameClass}>
                 <div className="squares">
-                    <div id="1" onClick={this.handleClick} className="square "/>
-                    <div id="2" onClick={this.handleClick} className="square "/>
-                    <div id="3" onClick={this.handleClick} className="square "/>
+                   {items}
                 </div>
             </div>
         );

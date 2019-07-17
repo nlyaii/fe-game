@@ -5,7 +5,12 @@ import MainLayout from './game/layouts/MainLayout'
 const gameState = {
     min: 1,
     max: 3,
-    attempts: 3
+    attempts: 3,
+    tiles: [
+        {id: 1},
+        {id: 2},
+        {id: 3}
+    ]
 };
 
 function App() {

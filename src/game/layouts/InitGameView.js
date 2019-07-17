@@ -52,7 +52,7 @@ class InitGameView extends React.Component{
                     {attempts === 3 && <ChatLine wait={FIRST_TIMEOUT} say={greet}/>}
                     <ChatLine wait={SECOND_TIMEOUT} say={messages.secondView.gameExplanation + attemptsAmountText}/>
                 </div>
-                <Game disabled={attempts === 0} number={this.state.winningNumber} onSelectSquare={this.handleSelectBox} wait={THIRD_TIMEOUT}/>
+                <Game tiles={this.props.rules.tiles} disabled={attempts === 0} number={this.state.winningNumber} onSelectSquare={this.handleSelectBox} wait={THIRD_TIMEOUT}/>
                 <button className={"start-button " + showButtonClass} type="button"
                         onClick={this.handleGameFinish}>{messages.secondView.showScore}</button>
             </div>
