@@ -16,7 +16,7 @@
     }
     display: table;
     margin-top: 10px;
-    max-width: 90%;
+    margin-right: 15px;
     -webkit-animation: fadein 2s;
     -moz-animation: fadein 2s;
     -ms-animation: fadein 2s;
@@ -32,9 +32,20 @@
       margin: 0 auto;
       font-size: 16px;
       line-height: 24px;
+      .smile-logo {
+        width: 30px;
+        height: 30px;
+        background-image: url("assets/icons/smile.svg");
+        background-repeat: no-repeat;
+        background-position: 4px 13px;
+        display: inline-block;
+      }
     }
   }
   .chat-item + .chat-item{
     top: 30%;
   }
+
+
+
 }

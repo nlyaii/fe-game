@@ -11,9 +11,7 @@ class IntroScreenView extends React.Component{
         this.timeout = null;
         this.state = {
             hidden : true,
-            inputClass: '',
-            name: '',
-
+            name: ''
         };
     }
 
@@ -28,15 +26,15 @@ class IntroScreenView extends React.Component{
     }
 
     handleChange = (e) => {
-        if(e.target.value.length) { this.setState({ inputClass: 'active' }); }
+        this.props.onNameInput(e.target.value)
         this.setState({ name: e.target.value });
     }
 
-    isHidden = () => {
-        return this.state.hidden ? 'hidden' : ''
-    }
-
     render(){
+        const {hidden, name} = this.state
+        const inputClass = name.length ? "active" : ""
+        const formClass = hidden ? 'hidden' : ''
+
         return (
             <div className="intro-screen">
                 <div className="chat-bot">
@@ -44,14 +42,14 @@ class IntroScreenView extends React.Component{
                     <ChatLine wait={FIRST_TIMEOUT} say={messages.firstView.greeting}/>
                     <ChatLine wait={SECOND_TIMEOUT} say={messages.firstView.intro}/>
                 </div>
-                <div className={"form " + this.isHidden()}>
+                <div className={"form " + formClass}>
                     <div className='group'>
-                        <input className={this.state.inputClass} onChange={this.handleChange} value={this.state.name}
+                        <input className={inputClass} onChange={this.handleChange} value={this.state.name}
                                type="text" label='Name'/>
-                        <label>Name</label>
+                        <label>{messages.firstView.inputLabel}</label>
                     </div>
                     <button disabled={!this.state.name} className="start-button" type="button"
-                            onClick={this.props.onStoreAndMove}>Start</button>
+                            onClick={this.props.onStoreAndMove}>{messages.firstView.start}</button>
                 </div>
             </div>
         );

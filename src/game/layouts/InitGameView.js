@@ -15,42 +15,44 @@ class InitGameView extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
-            winningNumber: null,
-            min: 1,
-            max: 3,
+            localScore: 0,
             attempts: 3,
-            score: 0
+            winningNumber: createRandomWinningNumber(props.rules.min, props.rules.max)
         }
     }
 
-    componentDidMount() {
-        this.setState({winningNumber: createRandomWinningNumber(this.state.min, this.state.max)})
-    }
-
-    handleSelectBox = async (id) => {
+    handleSelectBox = (id) => {
         if (id === this.state.winningNumber) {
-            this.setState({score: this.state.score + 1})
+            this.setState({localScore: this.state.localScore + 1})
         }
 
-        await this.setState({attempts: this.state.attempts - 1})
-        this.setState({winningNumber: createRandomWinningNumber(this.state.min, this.state.max)})
+        this.setState({
+            attempts: this.state.attempts - 1,
+            winningNumber: createRandomWinningNumber(this.props.rules.min, this.props.rules.max)
+        })
+    }
 
-        if (this.state.attempts === 0) {
-            setTimeout(() => {
-                this.props.onFinishGame()
-            }, FIRST_TIMEOUT)
-        }
+    handleGameFinish = () => {
+        this.props.onFinishGame(this.state.localScore)
     }
 
     render(){
+        const {attempts} = this.state
+        const showButtonClass = attempts !== 0 ? 'hidden' : ''
+
+        const selectedText = attempts === 1 ? 'attempt' : 'attempts'
+        let text = `<b>${attempts} ${selectedText}.</b>`
+
         return (
             <div className="init-view">
                 <div className="chat-bot">
                     <img src={logo} className="mustace-logo" alt="logo"/>
-                    <ChatLine wait={FIRST_TIMEOUT} say={messages.secondView.niceToMeetYou + 'James'}/>
-                    <ChatLine wait={SECOND_TIMEOUT} say={messages.secondView.gameExplanation + '3 attempts'}/>
+                    {attempts === 3 && <ChatLine wait={FIRST_TIMEOUT} say={messages.secondView.niceToMeetYou + this.props.initData.name + '!'}/>}
+                    <ChatLine wait={SECOND_TIMEOUT} say={messages.secondView.gameExplanation + text}/>
                 </div>
-                <Game number={this.state.winningNumber} onSelectSquare={this.handleSelectBox} wait={THIRD_TIMEOUT}/>
+                <Game disabled={attempts === 0} number={this.state.winningNumber} onSelectSquare={this.handleSelectBox} wait={THIRD_TIMEOUT}/>
+                <button className={"start-button " + showButtonClass} type="button"
+                        onClick={this.handleGameFinish}>{messages.secondView.showScore}</button>
             </div>
         );
     }

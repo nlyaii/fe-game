@@ -7,8 +7,6 @@ class Game extends React.Component{
         this.state = { hidden: true}
     }
 
-    isHidden = () => { return this.state.hidden ? 'hidden' : '' }
-
     componentDidMount() {
         setTimeout(() => {
             this.setState({hidden: false});
@@ -20,26 +18,30 @@ class Game extends React.Component{
     }
 
     handleClick = (e) => {
-        let id = parseFloat(e.target.id)
-        let squareClicked = document.getElementById(e.target.id)
+        if(!this.props.disabled) {
+            let id = parseFloat(e.target.id)
+            let squareClicked = document.getElementById(e.target.id)
 
-        if(id === this.props.number) {
-            squareClicked.className += 'valid'
-        } else {
-            squareClicked.className += 'invalid'
+            if(id === this.props.number) {
+                squareClicked.className += 'valid'
+            } else {
+                squareClicked.className += 'invalid'
+            }
+
+            setTimeout(() => {
+                squareClicked.className = 'square '
+            }, 1500);
+
+            this.props.onSelectSquare(id)
         }
-
-        setTimeout(() => {
-            squareClicked.className = 'square '
-        }, 1500);
-
-        this.props.onSelectSquare(id)
     }
 
 
     render(){
+        const {hidden} = this.state
+        const gameClass =  hidden ? 'hidden' : ''
         return (
-            <div className={"game " + this.isHidden()}>
+            <div className={"game " + gameClass}>
                 <div className="squares">
                     <div id="1" onClick={this.handleClick} className="square "/>
                     <div id="2" onClick={this.handleClick} className="square "/>

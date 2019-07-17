@@ -17,11 +17,11 @@ class ChatLine extends React.Component{
         clearTimeout(this.timeout)
     }
 
-    isHidden = () => { return this.state.hidden ? 'hidden' : '' }
-
     render(){
+        const {hidden} = this.state
+        const chatItemClass = hidden ? 'hidden' : ''
         return (
-            <div className={'chat-item ' + this.isHidden()}>
+            <div className={'chat-item ' + chatItemClass}>
                 <p className="chat-text" dangerouslySetInnerHTML={{__html: this.props.say}}/>
             </div>
         );
